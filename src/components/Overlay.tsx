@@ -73,7 +73,7 @@ const Overlay = ({ currentIndex }: OverlayProps) => {
           </span>
           <p 
             ref={descRef}
-            className="font-inter text-sm md:text-lg leading-relaxed opacity-60 max-w-2xl"
+            className="font-inter text-sm md:text-lg leading-relaxed opacity-60 max-w-2xl whitespace-pre-line"
             style={{ willChange: 'transform, opacity' }}
           >
             {t(`project_${pIndex}_desc`)}
