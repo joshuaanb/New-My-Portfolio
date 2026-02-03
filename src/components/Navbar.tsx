@@ -31,36 +31,36 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  // Separate effect for timeline creation to handle ref updates reliably
   useEffect(() => {
-    // Initialize the timeline once
-    tl.current = gsap.timeline({ 
-      paused: true,
-      defaults: { force3D: true }
-    });
+    const ctx = gsap.context(() => {
+      // Clear existing timeline if any
+      if (tl.current) tl.current.kill();
 
-    tl.current
-      // Hamburger to X animation
+      tl.current = gsap.timeline({ 
+        paused: true,
+        defaults: { force3D: true }
+      })
       .to(line1Ref.current, { y: 8, rotate: 45, duration: 0.3, ease: 'power2.inOut' }, 0)
       .to(line2Ref.current, { opacity: 0, scale: 0, duration: 0.2, ease: 'power2.inOut' }, 0)
       .to(line3Ref.current, { y: -8, rotate: -45, duration: 0.3, ease: 'power2.inOut' }, 0)
-      
-      // Full screen menu animation
       .fromTo(menuRef.current, 
-        { x: '100%', opacity: 0, backdropFilter: 'blur(0px)' },
-        { x: '0%', opacity: 1, backdropFilter: 'blur(16px)', duration: 0.5, ease: 'power3.out' }, 0.1
+        { x: '100%', opacity: 0 },
+        { x: '0%', opacity: 1, duration: 0.5, ease: 'power3.out' }, 0.1
       )
-      
-      // Links stagger animation
-      .fromTo(linksRef.current,
+      .fromTo(linksRef.current.filter(Boolean),
         { y: 20, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.4, stagger: 0.1, ease: 'power2.out' }, 0.3
       );
+    });
 
     return () => {
-      if (tl.current) tl.current.kill();
+      ctx.revert();
+      tl.current = null;
     };
-  }, []);
+  }, [menuItems]); // Re-create timeline ONLY when items change
 
+  // Separate effect for controlling playback based on isOpen state
   useEffect(() => {
     if (!tl.current) return;
 
@@ -71,10 +71,6 @@ const Navbar = () => {
       tl.current.reverse();
       document.body.style.overflow = 'auto';
     }
-
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
   }, [isOpen]);
 
   return (
@@ -107,24 +103,24 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Hamburger Button */}
+      {/* Hamburger Button - Larger hit area for mobile */}
       <button
         ref={burgerRef}
         onClick={toggleMenu}
         aria-label={isOpen ? "Close menu" : "Open menu"}
         aria-expanded={isOpen}
-        className="relative z-101 w-8 h-8 flex flex-col justify-center items-center gap-1.5 focus:outline-none md:hidden"
+        className="relative z-101 w-12 h-12 flex flex-col justify-center items-center gap-1.5 focus:outline-none md:hidden"
         style={{ willChange: 'transform' }}
       >
-        <span ref={line1Ref} className="w-8 h-[2px] bg-current rounded-full transition-all origin-center" style={{ willChange: 'transform' }} />
-        <span ref={line2Ref} className="w-8 h-[2px] bg-current rounded-full transition-all origin-center" style={{ willChange: 'opacity, transform' }} />
-        <span ref={line3Ref} className="w-8 h-[2px] bg-current rounded-full transition-all origin-center" style={{ willChange: 'transform' }} />
+        <span ref={line1Ref} className="w-8 h-[2px] bg-current rounded-full origin-center" style={{ willChange: 'transform' }} />
+        <span ref={line2Ref} className="w-8 h-[2px] bg-current rounded-full origin-center" style={{ willChange: 'opacity, transform' }} />
+        <span ref={line3Ref} className="w-8 h-[2px] bg-current rounded-full origin-center" style={{ willChange: 'transform' }} />
       </button>
 
       {/* Mobile Menu Overlay */}
       <div
         ref={menuRef}
-        className={`fixed inset-0 bg-black/90 backdrop-blur-2xl z-99 flex flex-col justify-center items-center md:hidden ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
+        className={`fixed inset-0 bg-black z-99 flex flex-col justify-center items-center md:hidden ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
         style={{ willChange: 'transform, opacity' }}
       >
         <div className="flex flex-col gap-8 items-center">
@@ -141,7 +137,7 @@ const Navbar = () => {
           ))}
           
           <div className="flex gap-4 mt-8">
-             <button onClick={() => setLocale(locale === 'en' ? 'id' : 'en')} className="font-inter text-xs uppercase tracking-widest py-2 px-4 border border-white/20 rounded-full cursor-white">{locale.toUpperCase()}</button>
+             <button onClick={() => setLocale(locale === 'en' ? 'id' : 'en')} className="font-inter text-xs uppercase tracking-widest py-2 px-4 border border-white/20 rounded-full cursor-pointer">{locale.toUpperCase()}</button>
           </div>
         </div>
         
