@@ -10,14 +10,20 @@ export default function WorkPage() {
       <div className="pt-32 px-6 md:pt-48 md:px-12 max-w-6xl mx-auto">
         <h1 className="font-playfair text-5xl md:text-8xl mb-12 leading-tight">
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24 pb-32">
           {[
-            { id: "01", title: t('project_1_title'), type: t('project_1_type') },
-            { id: "02", title: t('project_2_title'), type: t('project_2_type') },
-            { id: "03", title: t('project_3_title'), type: t('project_3_type') },
-            { id: "04", title: t('project_4_title'), type: t('project_4_type') }
+            { id: "01", title: t('project_1_title'), type: t('project_1_type'), href: "https://github.com/joshuaanb/Portfolio" },
+            { id: "02", title: t('project_2_title'), type: t('project_2_type'), href: "https://github.com/joshuaanb/Sistem-Jemaat-Gereja" },
+            { id: "03", title: t('project_3_title'), type: t('project_3_type'), href: "https://github.com/joshuaanb/Project-Next.js" },
+            { id: "04", title: t('project_4_title'), type: t('project_4_type'), href: "https://github.com/joshuaanb/New-My-Portfolio" }
           ].map((item) => (
-            <div key={item.id} className="group cursor-pointer">
+            <a 
+              key={item.id} 
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group cursor-pointer block"
+            >
               <div className="aspect-video bg-white/5 rounded-2xl overflow-hidden mb-6 relative">
                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                  <span className="absolute top-6 left-6 font-inter text-[10px] tracking-widest text-white/20">{item.id}</span>
@@ -31,7 +37,7 @@ export default function WorkPage() {
                   →
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

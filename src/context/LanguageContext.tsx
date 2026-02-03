@@ -19,11 +19,7 @@ const translations = {
     services: "Services",
     work: "Work",
     contact: "Contact",
-    behance: "Behance",
-    dribbble: "Dribbble",
-    instagram: "Instagram",
     language: "Language",
-    theme: "Theme",
     // About Page
     about_title_1: "About",
     about_title_2: "Me",
@@ -65,8 +61,6 @@ const translations = {
     contact_title_2: "Connect",
     contact_description: "Currently open for collaborations and selective freelance opportunities for 2024.",
     contact_email: "josuanababan124@gmail.com",
-    github: "Github",
-    linkedin: "LinkedIn",
   },
   id: {
     home: "Beranda",
@@ -74,11 +68,7 @@ const translations = {
     services: "Layanan",
     work: "Karya",
     contact: "Kontak",
-    behance: "Behance",
-    dribbble: "Dribbble",
-    instagram: "Instagram",
     language: "Bahasa",
-    theme: "Tema",
     // About Page
     about_title_1: "Tentang",
     about_title_2: "Saya",
@@ -120,8 +110,6 @@ const translations = {
     contact_title_2: "Terhubung",
     contact_description: "Saat ini terbuka untuk kolaborasi dan peluang freelance pilihan untuk tahun 2024.",
     contact_email: "josuanababan124@gmail.com",
-    github: "Github",
-    linkedin: "LinkedIn",
   }
 } as const;
 
