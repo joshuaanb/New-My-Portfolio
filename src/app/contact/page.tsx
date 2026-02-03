@@ -6,7 +6,7 @@ export default function ContactPage() {
   const { t } = useLanguage();
 
   return (
-    <main className="min-h-screen w-full bg-[#0a0a0a] text-white selection:bg-white selection:text-black overflow-hidden relative">
+    <main className="min-h-screen w-full bg-[#0a0a0a] text-white selection:bg-white selection:text-black relative">
       
       {/* Subtle Background Accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-white/2 rounded-full blur-[120px] -z-10" />

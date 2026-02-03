@@ -18,14 +18,20 @@ const LiquidRing = React.memo(({ currentIndex }: { currentIndex: number }) => {
   const targetMouse = useRef(new THREE.Vector2(0, 0));
   const { viewport } = useThree();
 
-  // Shared geometry to save memory and processing
-  const geometry = useMemo(() => new THREE.TorusKnotGeometry(1, 0.35, 128, 32), []);
+  // Shared geometry to save memory and processing - Lower detail on mobile
+  const geometry = useMemo(() => {
+    const isMobile = viewport.width < 5; // viewport.width is in three.js units, typically ~5-10 for desktop
+    const radialSegments = isMobile ? 64 : 128;
+    const tubularSegments = isMobile ? 24 : 32;
+    return new THREE.TorusKnotGeometry(1, 0.35, radialSegments, tubularSegments);
+  }, [viewport.width]);
 
   // Calculate responsive scale: smaller on mobile, larger on desktop
   const scaling = useMemo(() => {
     const baseScale = Math.min(viewport.width, viewport.height) * 0.45;
-    return Math.max(0.4, Math.min(baseScale, 1.2));
-  }, [viewport]);
+    const isMobile = viewport.width < 5;
+    return isMobile ? Math.max(0.35, baseScale * 0.8) : Math.max(0.4, Math.min(baseScale, 1.2));
+  }, [viewport.width, viewport.height]);
 
   // Handle transition animation
   useEffect(() => {

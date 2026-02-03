@@ -124,32 +124,32 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <div
         ref={menuRef}
-        className={`fixed inset-0 bg-(--navbar-bg) z-99 flex flex-col justify-center items-center pointer-events-none transition-none md:hidden`}
+        className={`fixed inset-0 bg-black/90 backdrop-blur-2xl z-99 flex flex-col justify-center items-center md:hidden ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
         style={{ willChange: 'transform, opacity' }}
       >
-        <div className={`flex flex-col gap-8 items-center ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+        <div className="flex flex-col gap-8 items-center">
           {menuItems.map((item, index) => (
             <Link
               key={item.key}
               href={item.href}
               ref={(el) => { linksRef.current[index] = el; }}
               onClick={() => setIsOpen(false)}
-              className="font-playfair text-4xl font-bold text-current hover:opacity-60 transition-opacity"
+              className="font-playfair text-4xl font-bold text-white hover:opacity-60 transition-opacity"
             >
               {item.label}
             </Link>
           ))}
           
           <div className="flex gap-4 mt-8">
-             <button onClick={() => setLocale(locale === 'en' ? 'id' : 'en')} className="font-inter text-xs uppercase tracking-widest py-2 px-4 border border-current/20 rounded-full cursor-pointer">{locale.toUpperCase()}</button>
+             <button onClick={() => setLocale(locale === 'en' ? 'id' : 'en')} className="font-inter text-xs uppercase tracking-widest py-2 px-4 border border-white/20 rounded-full cursor-white">{locale.toUpperCase()}</button>
           </div>
         </div>
         
         {/* Socials / Footer in Menu */}
         <div className="absolute bottom-12 flex gap-8">
-          <a href="#" className="font-inter text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity">{t('linkedin')}</a>
-          <a href="#" className="font-inter text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity">{t('instagram')}</a>
-          <a href="#" className="font-inter text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity">{t('github')}</a>
+          <a href="#" className="font-inter text-[10px] uppercase tracking-widest text-white/40 hover:text-white transition-opacity">{t('linkedin')}</a>
+          <a href="#" className="font-inter text-[10px] uppercase tracking-widest text-white/40 hover:text-white transition-opacity">{t('instagram')}</a>
+          <a href="#" className="font-inter text-[10px] uppercase tracking-widest text-white/40 hover:text-white transition-opacity">{t('github')}</a>
         </div>
       </div>
     </nav>

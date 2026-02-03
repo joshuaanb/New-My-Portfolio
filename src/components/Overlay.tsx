@@ -49,10 +49,10 @@ const Overlay = ({ currentIndex }: OverlayProps) => {
 
   return (
     <>
-      <div className="fixed inset-0 z-10 flex flex-col justify-between p-6 md:p-12 pointer-events-none select-none text-current overflow-hidden">
+      <div className="fixed inset-0 z-10 flex flex-col p-6 md:p-12 pointer-events-none select-none text-current overflow-hidden">
         
-      {/* Main Content */}
-      <div className="max-w-4xl mt-12 md:mt-20">
+      {/* Main Content - Centered Vertically, Left Aligned Horizontally */}
+      <div className="flex-1 flex flex-col items-start justify-center text-left max-w-4xl mx-auto w-full">
         <div className="overflow-hidden">
           <h1 
             ref={titleRef}
@@ -63,17 +63,17 @@ const Overlay = ({ currentIndex }: OverlayProps) => {
           </h1>
         </div>
         
-        <div className="mt-6 md:mt-8 flex flex-col md:flex-row gap-4 md:gap-8 items-start">
+        <div className="mt-8 md:mt-12 flex flex-col items-start gap-6 md:gap-10">
           <span 
             ref={subtitleRef}
-            className="font-inter text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] w-full md:w-1/3 opacity-70"
+            className="font-inter text-[10px] md:text-[12px] uppercase tracking-[0.4em] md:tracking-[0.6em] opacity-70"
             style={{ willChange: 'transform, opacity' }}
           >
             {t(`project_${pIndex}_subtitle`)}
           </span>
           <p 
             ref={descRef}
-            className="font-inter text-xs md:text-base leading-relaxed opacity-60 max-w-lg"
+            className="font-inter text-sm md:text-lg leading-relaxed opacity-60 max-w-2xl"
             style={{ willChange: 'transform, opacity' }}
           >
             {t(`project_${pIndex}_desc`)}
@@ -81,16 +81,9 @@ const Overlay = ({ currentIndex }: OverlayProps) => {
         </div>
       </div>
 
-      {/* Bottom HUD */}
-      <div className="flex justify-between items-end gap-4">
-        <div className="flex gap-6 md:gap-12 items-end">
-          {/* Bottom Left Logo Indicator */}
-          <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-current/20 flex items-center justify-center font-inter text-[9px] md:text-[10px] font-bold shrink-0">
-            N
-          </div>
-        </div>
-
-        <div className="font-inter text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] opacity-40 shrink-0 mb-4">
+      {/* Bottom HUD - Fixed at bottom */}
+      <div className="flex justify-center items-end w-full pb-4">
+        <div className="font-inter text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] opacity-40 shrink-0">
           {String(currentIndex + 1).padStart(2, '0')} / {String(PROJECTS.length).padStart(2, '0')}
         </div>
       </div>

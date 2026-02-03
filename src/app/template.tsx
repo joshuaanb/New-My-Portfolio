@@ -33,7 +33,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative">
       {/* Page Reveal Overlay */}
       <div 
         ref={overlayRef}
