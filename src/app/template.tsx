@@ -37,7 +37,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
       {/* Page Reveal Overlay */}
       <div 
         ref={overlayRef}
-        className="fixed inset-0 bg-[#0a0a0a] z-100 pointer-events-none will-change-transform"
+        className="fixed inset-0 bg-[#0a0a0a] z-90 pointer-events-none will-change-transform"
       />
       
       {/* Page Content Wrapper */}

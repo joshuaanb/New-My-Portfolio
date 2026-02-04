@@ -35,10 +35,11 @@ const translations = {
     service_1_desc: "Interactive WebGL experiences and high-performance frontend engineering.",
     service_2_title: "UI/UX Design",
     service_2_desc: "Sophisticated digital identities and user-centric interface design.",
-    service_3_title: "3D Motion",
-    service_3_desc: "Fluid 3D animations and visual storytelling for the modern web.",
     service_4_title: "Brand Identity",
     service_4_desc: "Minimalist and premium brand systems designed for longevity.",
+    // Work Page
+    work_title_1: "Selected",
+    work_title_2: "Work",
     // Project Data (Unified for Work and Home)
     project_1_title: "Liquid Distortion",
     project_1_type: "WebGL / React",
@@ -84,10 +85,11 @@ const translations = {
     service_1_desc: "Pengalaman WebGL interaktif dan teknik frontend berperforma tinggi.",
     service_2_title: "Desain UI/UX",
     service_2_desc: "Identitas digital canggih dan desain antarmuka yang berpusat pada pengguna.",
-    service_3_title: "Gerakan 3D",
-    service_3_desc: "Animasi 3D yang mengalir dan penceritaan visual untuk web modern.",
     service_4_title: "Identitas Merek",
     service_4_desc: "Sistem merek minimalis dan premium yang dirancang untuk umur panjang.",
+    // Work Page
+    work_title_1: "Karya",
+    work_title_2: "Pilihan",
     // Project Data (Unified)
     project_1_title: "Distorsi Cair",
     project_1_type: "WebGL / React",

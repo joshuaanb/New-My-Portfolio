@@ -9,6 +9,7 @@ export default function WorkPage() {
     <main className="min-h-screen w-full bg-[#0a0a0a] text-white selection:bg-white selection:text-black">
       <div className="pt-32 px-6 md:pt-48 md:px-12 max-w-6xl mx-auto">
         <h1 className="font-playfair text-5xl md:text-8xl mb-12 leading-tight">
+          {t('work_title_1')} <span className="text-white/20">{t('work_title_2')}</span>
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24 pb-32">
           {[

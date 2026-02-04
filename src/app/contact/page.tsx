@@ -9,7 +9,7 @@ export default function ContactPage() {
     <main className="min-h-screen w-full bg-[#0a0a0a] text-white selection:bg-white selection:text-black relative">
       
       {/* Subtle Background Accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-white/2 rounded-full blur-[120px] -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-white/2 rounded-full blur-[60px] md:blur-[120px] -z-10 transform-gpu" />
 
       <div className="pt-32 px-6 md:pt-48 md:px-12 max-w-4xl mx-auto flex flex-col items-center text-center">
         <h1 className="font-playfair text-5xl md:text-9xl mb-8 leading-tight">

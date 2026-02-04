@@ -46,11 +46,11 @@ const Navbar = () => {
       .to(line3Ref.current, { y: -8, rotate: -45, duration: 0.3, ease: 'power2.inOut' }, 0)
       .fromTo(menuRef.current, 
         { x: '100%', opacity: 0 },
-        { x: '0%', opacity: 1, duration: 0.5, ease: 'power3.out' }, 0.1
+        { x: '0%', opacity: 1, duration: 0.4, ease: 'power3.out' }, 0.1
       )
       .fromTo(linksRef.current.filter(Boolean),
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.4, stagger: 0.1, ease: 'power2.out' }, 0.3
+        { y: 0, opacity: 1, duration: 0.3, stagger: 0.08, ease: 'power2.out' }, 0.2
       );
     });
 
@@ -74,7 +74,7 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-100 flex justify-between items-center p-6 md:p-12 pointer-events-auto">
+    <nav className="fixed top-0 left-0 w-full z-1000 flex justify-between items-center p-6 md:p-12 pointer-events-auto">
       {/* Logo */}
       <Link href="/" className="font-playfair text-xl md:text-2xl font-bold tracking-tighter text-current hover:opacity-80 transition-opacity">
         Jona<span className="opacity-40">.</span>
@@ -109,7 +109,7 @@ const Navbar = () => {
         onClick={toggleMenu}
         aria-label={isOpen ? "Close menu" : "Open menu"}
         aria-expanded={isOpen}
-        className="relative z-101 w-12 h-12 flex flex-col justify-center items-center gap-1.5 focus:outline-none md:hidden"
+        className="relative z-1001 w-12 h-12 flex flex-col justify-center items-center gap-1.5 focus:outline-none md:hidden"
         style={{ willChange: 'transform' }}
       >
         <span ref={line1Ref} className="w-8 h-[2px] bg-current rounded-full origin-center" style={{ willChange: 'transform' }} />
@@ -120,7 +120,7 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <div
         ref={menuRef}
-        className={`fixed inset-0 bg-black z-99 flex flex-col justify-center items-center md:hidden ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
+        className={`fixed inset-0 bg-black z-999 flex flex-col justify-center items-center md:hidden ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
         style={{ willChange: 'transform, opacity' }}
       >
         <div className="flex flex-col gap-8 items-center">
