@@ -58,6 +58,9 @@ const translations = {
     contact_title_2: "Connect",
     contact_description: "Currently open for collaborations and selective freelance opportunities for 2024.",
     contact_email: "josuanababan124@gmail.com",
+    linkedin: "LinkedIn",
+    instagram: "Instagram",
+    github: "GitHub",
   },
   id: {
     home: "Beranda",
@@ -104,6 +107,9 @@ const translations = {
     contact_title_2: "Terhubung",
     contact_description: "Saat ini terbuka untuk kolaborasi dan peluang freelance pilihan untuk tahun 2024.",
     contact_email: "josuanababan124@gmail.com",
+    linkedin: "LinkedIn",
+    instagram: "Instagram",
+    github: "GitHub",
   }
 } as const;
 
