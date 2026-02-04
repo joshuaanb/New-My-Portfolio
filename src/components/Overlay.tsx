@@ -51,8 +51,8 @@ const Overlay = ({ currentIndex }: OverlayProps) => {
     <>
       <div className="fixed inset-0 z-10 flex flex-col p-6 md:p-12 pointer-events-none select-none text-current overflow-hidden">
         
-      {/* Main Content - Centered Vertically, Left Aligned Horizontally */}
-      <div className="flex-1 flex flex-col items-start justify-center text-left max-w-4xl mx-auto w-full">
+      {/* Main Content - Centered Horizontally & Vertically */}
+      <div className="flex-1 flex flex-col items-center justify-center text-center max-w-4xl mx-auto w-full">
         <div className="overflow-hidden">
           <h1 
             ref={titleRef}
@@ -63,7 +63,7 @@ const Overlay = ({ currentIndex }: OverlayProps) => {
           </h1>
         </div>
         
-        <div className="mt-8 md:mt-12 flex flex-col items-start gap-6 md:gap-10">
+        <div className="mt-8 md:mt-12 flex flex-col items-center gap-6 md:gap-10">
           <span 
             ref={subtitleRef}
             className="font-inter text-[10px] md:text-[12px] uppercase tracking-[0.4em] md:tracking-[0.6em] opacity-70"
@@ -73,7 +73,7 @@ const Overlay = ({ currentIndex }: OverlayProps) => {
           </span>
           <p 
             ref={descRef}
-            className="font-inter text-sm md:text-lg leading-relaxed opacity-60 max-w-2xl whitespace-pre-line"
+            className="font-inter text-sm md:text-lg leading-relaxed opacity-60 max-w-2xl"
             style={{ willChange: 'transform, opacity' }}
           >
             {t(`project_${pIndex}_desc`)}
