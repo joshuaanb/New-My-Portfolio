@@ -41,18 +41,19 @@ const IridescentShader = {
       vec3 normal = normalize(vNormal + 0.00001); // Avoid zero normal
       vec3 viewDir = normalize(vViewPosition + 0.00001); // Avoid zero vector
       
-      // Fresnel effect for iridescence
+      // Fresnel effect for iridescence - softer for better wrapping
       float dotProduct = dot(normal, viewDir);
       float fresnel = pow(clamp(1.0 - abs(dotProduct), 0.0, 1.0), 3.0);
       
-      // Dynamic iridescent colors based on view angle and time
+      // Premium "Soap Bubble" palette
+      // palette(t, a, b, c, d)
       vec3 iridescentColor = pal(fresnel + uTime * 0.1, 
                                  vec3(0.5, 0.5, 0.5), 
                                  vec3(0.5, 0.5, 0.5), 
                                  vec3(1.0, 1.0, 1.0), 
                                  vec3(0.0, 0.33, 0.67));
                                  
-      float alpha = clamp(fresnel * 1.5 + uTransition * 0.5, 0.1, 0.9);
+      float alpha = clamp(fresnel * 2.0 + uTransition * 0.5, 0.1, 1.0);
       
       // Add a "white flash" or intensity boost during transition
       vec3 finalColor = mix(iridescentColor * uColor, vec3(1.0), uTransition * 0.3);

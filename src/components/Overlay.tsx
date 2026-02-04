@@ -14,14 +14,13 @@ const Overlay = ({ currentIndex }: OverlayProps) => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
   const subtitleRef = useRef<HTMLSpanElement>(null);
+  const [displayIndex, setDisplayIndex] = React.useState(currentIndex);
 
   useEffect(() => {
     const tl = gsap.timeline({
       defaults: { force3D: true }
     });
     
-    const pIndex = currentIndex + 1;
-
     tl.to([titleRef.current, descRef.current, subtitleRef.current], {
       opacity: 0,
       y: -20,
@@ -29,9 +28,7 @@ const Overlay = ({ currentIndex }: OverlayProps) => {
       stagger: 0.05,
       ease: "power2.in",
       onComplete: () => {
-        if (titleRef.current) titleRef.current.innerText = t(`project_${pIndex}_title`);
-        if (subtitleRef.current) subtitleRef.current.innerText = t(`project_${pIndex}_subtitle`);
-        if (descRef.current) descRef.current.innerText = t(`project_${pIndex}_desc`);
+        setDisplayIndex(currentIndex);
       }
     })
     .set([titleRef.current, descRef.current, subtitleRef.current], { y: 20 })
@@ -43,9 +40,9 @@ const Overlay = ({ currentIndex }: OverlayProps) => {
       ease: "power3.out"
     });
 
-  }, [currentIndex, t]);
+  }, [currentIndex]);
 
-  const pIndex = currentIndex + 1;
+  const pIndex = displayIndex + 1;
 
   return (
     <>

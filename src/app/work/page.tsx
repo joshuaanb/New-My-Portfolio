@@ -14,9 +14,8 @@ export default function WorkPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24 pb-32">
           {[
             { id: "01", title: t('project_1_title'), type: t('project_1_type'), href: "https://github.com/joshuaanb/Portfolio" },
-            { id: "02", title: t('project_2_title'), type: t('project_2_type'), href: "https://github.com/joshuaanb/Sistem-Jemaat-Gereja" },
-            { id: "03", title: t('project_3_title'), type: t('project_3_type'), href: "https://github.com/joshuaanb/Project-Next.js" },
-            { id: "04", title: t('project_4_title'), type: t('project_4_type'), href: "https://github.com/joshuaanb/New-My-Portfolio" }
+            { id: "03", title: t('project_2_title'), type: t('project_2_type'), href: "https://github.com/joshuaanb/Sistem-Jemaat-Gereja" },
+            { id: "10", title: t('project_3_title'), type: t('project_3_type'), href: "https://github.com/joshuaanb/Project-Next.js" }
           ].map((item) => (
             <a 
               key={item.id} 

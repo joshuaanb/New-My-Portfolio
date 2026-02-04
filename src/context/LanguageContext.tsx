@@ -53,10 +53,6 @@ const translations = {
     project_3_type: "Animation",
     project_3_subtitle: "DYNAMICS",
     project_3_desc: "Exploring smooth transitions between geometric primitives using custom GLSL shaders and GSAP.",
-    project_4_title: "Iridescent Sheen",
-    project_4_type: "Shaders / Design",
-    project_4_subtitle: "COLOR THEORY",
-    project_4_desc: "Implementing physically based iridescence and thin-film interference in WebGL materials.",
     // Contact Page
     contact_title_1: "Let's",
     contact_title_2: "Connect",
@@ -103,10 +99,6 @@ const translations = {
     project_3_type: "Animasi",
     project_3_subtitle: "DINAMIKA",
     project_3_desc: "Menjelajahi transisi halus antara primitif geometris menggunakan shader GLSL kustom dan GSAP.",
-    project_4_title: "Kilau Iridescent",
-    project_4_type: "Shader / Desain",
-    project_4_subtitle: "TEORI WARNA",
-    project_4_desc: "Mengimplementasikan iridescence berbasis fisik dan interferensi film tipis dalam material WebGL.",
     // Contact Page
     contact_title_1: "Mari",
     contact_title_2: "Terhubung",
