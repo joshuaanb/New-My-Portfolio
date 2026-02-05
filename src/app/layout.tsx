@@ -14,7 +14,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Liquid Distortion Portfolio",
+  title: "JoNa",
   description: "A high-end 3D portfolio featuring liquid distortion transitions.",
 };
 

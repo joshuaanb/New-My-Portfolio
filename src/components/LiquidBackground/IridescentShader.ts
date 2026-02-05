@@ -5,7 +5,6 @@ const IridescentShader = {
     uTime: { value: 0 },
     uColor: { value: new THREE.Color("#ffffff") },
     uBrightness: { value: 0.5 },
-    uMouse: { value: new THREE.Vector2(0, 0) },
     uTransition: { value: 0 },
   },
   vertexShader: `

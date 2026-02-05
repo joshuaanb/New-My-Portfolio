@@ -42,7 +42,8 @@ const Overlay = ({ currentIndex }: OverlayProps) => {
 
   }, [currentIndex]);
 
-  const pIndex = displayIndex + 1;
+  const project = PROJECTS[displayIndex];
+  const pId = project.id;
 
   return (
     <>
@@ -56,7 +57,7 @@ const Overlay = ({ currentIndex }: OverlayProps) => {
             className="font-playfair text-5xl sm:text-7xl md:text-[10rem] leading-[0.9] text-current transition-all"
             style={{ willChange: 'transform, opacity' }}
           >
-            {t(`project_${pIndex}_title`)}
+            {t(`project_${pId}_title`)}
           </h1>
         </div>
         
@@ -66,14 +67,14 @@ const Overlay = ({ currentIndex }: OverlayProps) => {
             className="font-inter text-[10px] md:text-[12px] uppercase tracking-[0.4em] md:tracking-[0.6em] opacity-70"
             style={{ willChange: 'transform, opacity' }}
           >
-            {t(`project_${pIndex}_subtitle`)}
+            {t(`project_${pId}_subtitle`)}
           </span>
           <p 
             ref={descRef}
             className="font-inter text-sm md:text-lg leading-relaxed opacity-60 max-w-2xl"
             style={{ willChange: 'transform, opacity' }}
           >
-            {t(`project_${pIndex}_desc`)}
+            {t(`project_${pId}_desc`)}
           </p>
         </div>
       </div>

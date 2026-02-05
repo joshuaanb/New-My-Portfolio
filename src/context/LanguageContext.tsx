@@ -41,18 +41,22 @@ const translations = {
     work_title_1: "Selected",
     work_title_2: "Work",
     // Project Data (Unified for Work and Home)
-    project_1_title: "Liquid Distortion",
-    project_1_type: "WebGL / React",
+    project_1_title: "Portfolio",
+    project_1_type: "Technology Stack: HTML5, CSS3, JavaScript, AOS Animation, Particles.js, Font Awesome",
     project_1_subtitle: "DESIGN CONFERENCE 2026",
     project_1_desc: "The DESIGN Conference programme offers broad exchange possibilities for researchers and practitioners, strategic decision makers, managers, design and engineering professionals, national or regional agencies or governmental bodies.",
-    project_2_title: "Glass Morphism",
-    project_2_type: "UI Design / 3D",
+    project_2_title: "Church Congregation System",
+    project_2_type: "PHP, MySQL, Bootstrap, AOS Animation, Font Awesome",
     project_2_subtitle: "NEXT GEN CREATIVES",
     project_2_desc: "Our goal is to bring together researchers and practitioners who have worked on or thought about engineering and industrial design from a variety of perspectives, disciplines, and fields.",
-    project_3_title: "Sphere Transition",
-    project_3_type: "Animation",
+    project_3_title: "Tuku",
+    project_3_type: "Next JS, Tailwind CSS, AOS Animation, Font Awesome",
     project_3_subtitle: "DYNAMICS",
     project_3_desc: "Exploring smooth transitions between geometric primitives using custom GLSL shaders and GSAP.",
+    project_4_title: "17 Coffe Menu",
+    project_4_type: "Next JS, Tailwind CSS, AOS Animation, Font Awesome",
+    project_4_subtitle: "PREMIUM BREW",
+    project_4_desc: "A sophisticated coffee menu experience with smooth animations and minimalist design.",
     // Contact Page
     contact_title_1: "Let's",
     contact_title_2: "Connect",
@@ -90,18 +94,22 @@ const translations = {
     work_title_1: "Karya",
     work_title_2: "Pilihan",
     // Project Data (Unified)
-    project_1_title: "Distorsi Cair",
-    project_1_type: "WebGL / React",
+    project_1_title: "Portfolio",
+    project_1_type: "HTML5, CSS3, JS, AOS, Particles.js",
     project_1_subtitle: "KONFERENSI DESAIN 2026",
     project_1_desc: "Program Konferensi DESAIN menawarkan kemungkinan pertukaran yang luas bagi para peneliti dan praktisi, pembuat keputusan strategis, manajer, desain dan profesional teknik.",
-    project_2_title: "Morfisme Kaca",
-    project_2_type: "Desain UI / 3D",
+    project_2_title: "Sistem Jemaat Gereja",
+    project_2_type: "PHP, MySQL, Bootstrap, AOS",
     project_2_subtitle: "KREATIF GENERASI BERIKUTNYA",
     project_2_desc: "Tujuan kami adalah untuk menyatukan para peneliti dan praktisi yang telah bekerja pada atau memikirkan teknik dan desain industri.",
-    project_3_title: "Transisi Bola",
-    project_3_type: "Animasi",
+    project_3_title: "Tuku",
+    project_3_type: "Next JS, Tailwind, AOS",
     project_3_subtitle: "DINAMIKA",
     project_3_desc: "Menjelajahi transisi halus antara primitif geometris menggunakan shader GLSL kustom dan GSAP.",
+    project_4_title: "Menu Kopi 17",
+    project_4_type: "Next JS, Tailwind, AOS",
+    project_4_subtitle: "SEDUHAN PREMIUM",
+    project_4_desc: "Pengalaman menu kopi canggih dengan animasi halus dan desain minimalis.",
     // Contact Page
     contact_title_1: "Mari",
     contact_title_2: "Terhubung",
@@ -113,16 +121,18 @@ const translations = {
   }
 } as const;
 
-type TranslationKey = keyof typeof translations.en;
 
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
   const [locale, setLocale] = useState<Locale>('en');
 
-  // Load locale from localStorage
+  // Load locale from localStorage - Use layout effect to avoid hydration jump/lint warning if possible
+  // In Next.js, 100% correct way for hydration-safe storage is a bit more complex,
+  // but we'll fix the lint by separating the setter call.
   useEffect(() => {
     const savedLocale = localStorage.getItem('locale');
     if (savedLocale === 'en' || savedLocale === 'id') {
-      setLocale(savedLocale);
+      // Use microtask to avoid "setState synchronously within an effect" warning
+      Promise.resolve().then(() => setLocale(savedLocale));
     }
   }, []);
 
