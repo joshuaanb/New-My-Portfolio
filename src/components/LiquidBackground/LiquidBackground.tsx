@@ -14,7 +14,7 @@ import {
 import * as THREE from 'three';
 import IridescentShader from './IridescentShader';
 
-const LiquidRing = React.memo(({ currentIndex }: { currentIndex: number }) => {
+const LiquidRing = React.memo(function LiquidRing({ currentIndex }: { currentIndex: number }) {
   const meshRef = useRef<THREE.Mesh>(null!);
   const iridescentRef = useRef<THREE.ShaderMaterial>(null!);
   const targetMouse = useRef(new THREE.Vector2(0, 0));
@@ -99,7 +99,7 @@ const LiquidRing = React.memo(({ currentIndex }: { currentIndex: number }) => {
   );
 });
 
-const LiquidBackground = React.memo(({ currentIndex = 0 }: { currentIndex?: number }) => {
+const LiquidBackground = React.memo(function LiquidBackground({ currentIndex = 0 }: { currentIndex?: number }) {
   return (
     <div className="fixed inset-0 w-full h-screen -z-10 bg-[#0a0a0a]">
       <Canvas 

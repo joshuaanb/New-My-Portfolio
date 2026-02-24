@@ -28,6 +28,7 @@ const translations = {
     philosophy_desc: "Design is not just what it looks like; it's how it feels. I build interfaces that breathe and react.",
     experience_title: "Experience",
     experience_desc: "5+ years creating digital products for global brands and independent creators.",
+    skills_title: "Skills & Tools",
     // Services Page
     services_title_1: "Our",
     services_title_2: "Services",
@@ -81,6 +82,7 @@ const translations = {
     philosophy_desc: "Desain bukan hanya tentang tampilannya; tapi tentang bagaimana rasanya. Saya membangun antarmuka yang hidup dan bereaksi.",
     experience_title: "Pengalaman",
     experience_desc: "5+ tahun menciptakan produk digital untuk merek global dan kreator independen.",
+    skills_title: "Keahlian & Alat",
     // Services Page
     services_title_1: "Layanan",
     services_title_2: "Kami",

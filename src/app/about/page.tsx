@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from '@/context/LanguageContext';
+import SkillsMarquee from '@/components/SkillsMarquee';
 
 export default function AboutPage() {
   const { t } = useLanguage();
@@ -28,6 +29,14 @@ export default function AboutPage() {
               {t('experience_desc')}
             </p>
           </div>
+        </div>
+        
+        <div className="mt-24 w-full">
+          <h2 className="font-playfair text-3xl md:text-5xl text-center mb-8">{t('skills_title')}</h2>
+        </div>
+        
+        <div className="w-screen relative left-1/2 -translate-x-1/2">
+          <SkillsMarquee />
         </div>
       </div>
     </main>

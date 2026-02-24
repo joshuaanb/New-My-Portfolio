@@ -18,7 +18,7 @@ const Navbar = () => {
       label: t(key),
       href: key === 'home' ? '/' : `/${key}`
     })), 
-  [locale, t]);
+  [t]);
 
   const menuRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<(HTMLAnchorElement | null)[]>([]);

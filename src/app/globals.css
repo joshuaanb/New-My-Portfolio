@@ -18,3 +18,14 @@ body {
 canvas {
   touch-action: none;
 }
+
+@keyframes marquee {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+  /* Use hardware acceleration and a long, linear infinite duration */
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
